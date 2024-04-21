@@ -18,10 +18,10 @@ int main() {
                 -15, 40, -20,
                 -5, -20, 80;
 
-    sector4 <<  1, 2, 3, 4,
-                5, 6, 7, 8,
-                9, 10,11,12,
-                13,14,15,16;
+    sector4 <<  85, -15, -25,-25,
+                -25, 85, -35,-45,
+                -20, -15,85,-15,
+                -40,-55,15,85;
 
     sector5 <<  1,  2,  3,   4,  5,
                 6,  7,  8,   9, 10,
@@ -30,7 +30,7 @@ int main() {
                 21, 22, 23, 24, 25;
 
     //Test here, change the value of target
-    Eigen::Matrix target = sector3;
+    Eigen::Matrix target = sector4;
 
     int matrixCubic = (int)target.rows();
 
@@ -46,7 +46,7 @@ int main() {
     int leadingColumn = 0;
     int leadingRow = 0;
 
-    while(leadingRow < 2 && leadingColumn < 2){
+    for(int j = 1; j < matrixCubic; j++){
         if(target(leadingRow,leadingColumn) != 1){
             scaleRow(target,leadingRow,1.0/target(leadingRow,leadingColumn));
         }
