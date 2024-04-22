@@ -13,6 +13,12 @@ int main() {
     Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> sector3(3,3);
     Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> sector4(4,4);
     Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> sector5(5,5);
+    Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> sectorRandom(4,6); //row x col
+
+    sectorRandom<< 2 , 2 , -1 , 0 , 1 , 0,
+                    -1, -1, 2, -3, 1, 0,
+                    1, 1, -2, 0 , -1, 0,
+                    0, 0, 1 ,1 ,1 , 0;
 
     sector3 <<  20, -20, -60,
                 -15, 40, -20,
@@ -30,7 +36,9 @@ int main() {
                 21, 22, 23, 24, 25;
 
     //Test here, change the value of target
-    Eigen::Matrix target = sector4;
+    Eigen::Matrix target = sectorRandom;
+
+    std::cout<<target<<std::endl;
 
     int matrixCubic = (int)target.rows();
 
